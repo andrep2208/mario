@@ -1,14 +1,15 @@
 function Pipe() {
-  this.x = round(random(0, width-50));
+  this.x = round(random(0, (width-50)/4));
+  this.b = round(random((width-50)/4));
   //this.y =
   this.height = round(random(height/2));
   this.y = height - this.height;
 
-  this.show = function () {
+  this.show = function (a) {
     stroke (255,250,250);
     strokeWeight (5);
     noFill();
-    rect(this.x , this.y, 70, this.height)
+    rect(this.x - a*this.b, this.y, 70, this.height)
   }
 
   this.stand = function(human) {
