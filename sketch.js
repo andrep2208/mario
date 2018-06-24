@@ -34,8 +34,8 @@ function draw() {
 
   for (var i = 0; i < pipe.length; i++)
   {
-    pipe[i].show(i);
-    firstCondition = (pipe[i].x - i*pipe[i].b+ 70) == human.x;
+    pipe[i].show();
+    firstCondition = (pipe[i].x + 70) == human.x;
     secondCondition = (human.x + 50) == pipe[i].x;
 
     // grab your pipeIndex in here
@@ -46,8 +46,7 @@ function draw() {
        //human.x = pipe[i].x - 50;
        console.log('true');
        break;
-    } else {  console.log();
-     }
+    }
 
     // if (pipe[i].stand(human) == true){
     //   if (human.y > pipe[i].y - 50){
@@ -63,6 +62,9 @@ function draw() {
 
      }
 
+    // Sometimes pipeIndex might not be able to found
+    // therefore, the rest of the code should not execute
+    if (pipeIndex === null) return;
     var singlePipe = pipe[pipeIndex];
     //execute code here
 
